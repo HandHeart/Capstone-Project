@@ -75,6 +75,10 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Then open **http://127.0.0.1:8765/**.
 
+## Back to top (`#scroll-top`)
+
+Fixed round control (bottom-right, `z-index: 40`). Shown after ~380px scroll (`js/scroll-top.js`); `tabindex="-1"` when hidden so it’s skipped in tab order. Click scrolls to top with `behavior: smooth` unless `prefers-reduced-motion: reduce`.
+
 ## Related files
 
 | Concern        | File(s)              |
@@ -84,4 +88,5 @@ Then open **http://127.0.0.1:8765/**.
 | Hero canvas    | `js/banner.js`       |
 | FAQ accordion  | `js/faq.js`          |
 | Contact modal  | `js/contact-modal.js` |
+| Back to top    | `js/scroll-top.js`   |
 | Local server   | `serve-local.ps1`    |

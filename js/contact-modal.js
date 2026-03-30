@@ -9,10 +9,13 @@
 
   const closeBtn = dialog.querySelector(".contact-modal-close");
   const successClose = success.querySelector(".contact-success-close");
+  const intro = dialog.querySelector(".contact-modal-intro");
 
   function openModal() {
     form.hidden = false;
     success.hidden = true;
+    if (intro) intro.hidden = false;
+    dialog.setAttribute("aria-labelledby", "contact-modal-title");
     form.reset();
     dialog.showModal();
   }
@@ -52,6 +55,8 @@
       return;
     }
     form.hidden = true;
+    if (intro) intro.hidden = true;
     success.hidden = false;
+    dialog.setAttribute("aria-labelledby", "contact-success-title");
   });
 })();

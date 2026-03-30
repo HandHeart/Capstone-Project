@@ -20,6 +20,8 @@
     { passive: true }
   );
 
+  if (!window.matchMedia("(min-width: 1320px)").matches) return;
+
   if (!nav || !hero) return;
 
   const links = Array.prototype.slice.call(

@@ -33,7 +33,9 @@ At **900px** and below, `.solution-with-media` stacks vertically (`flex-directio
 ## FAQ (`#faq-1193`)
 
 - **Surface:** Background is a short gradient from `--dark2` into `--surface` so it lines up with the bottom of the Key Features strip and matches the main content palette (not the footer `--dark`).
+- **Width / gutters:** The inner grid is **`.faq-layout` only** (not `.cs-container`), with **`max-width: 1120px`** and **`margin: 0 auto`** like other content rails. **Horizontal inset** is on **`#faq-1193`**: default **`clamp(1.25rem, 4vw, 2rem)`**; at **`max-width: 768px`** it matches **Key Features** (**`clamp(1rem, 4vw, 1.5rem)`**) so FAQ and feature cards share the same side rhythm on phones.
 - **Markup:** Two-column layout (`.faq-layout`): `.faq-media` uses a themed card (`.faq-visual-card`) with `assets/images/thinking_computer.jpg`, decorative glow, and `aria-hidden` on the visual column. Copy uses `.faq-copy` with existing `.cs-topper` / `.cs-title`.
+- **Stacked layout (≤900px):** The FAQ visual matches the **Our Solution** panel: `.faq-media` is capped at **360px** centered; `.faq-visual-card` uses **420px** height (same as `.iot-visual-wrap`), **`border-radius: var(--radius-md)`**, and the photo sits in an absolutely positioned oval **centered in the card** (**50% / 50%** + translate), same idea as `.iot-oval-picture` inside `.iot-visual-wrap`. At **≤480px**, card height follows **`min(72vw, 420px)`** and the oval uses **`min(78vw, 280px)` × `min(95vw, 340px)`** like the solution block.
 - **Accordion:** Each row is `.faq-item` with a `<button class="faq-trigger">` (not `.cs-button`, to avoid clashing with the hero CTA). Answers live in `.faq-panel` > `.faq-panel-inner` > `.faq-answer`. Only one item has `.is-open` by default; `js/faq.js` toggles `.is-open` and `aria-expanded` (single-open behavior).
 - **Motion:** Panel expand uses CSS `grid-template-rows: 0fr` / `1fr`. Respects `prefers-reduced-motion` by disabling FAQ transitions.
 
@@ -78,6 +80,15 @@ Then open **http://127.0.0.1:8765/**.
 ## Sticky section nav (`#section-nav`)
 
 Fixed **top-right** rail from **1320px** width up (`right: max(0.75rem, calc(50vw - 35rem - 14.5rem))` so it sits farther from the content column, toward the viewport edge). **Hidden in the hero:** `opacity`/`visibility` until `#banner-843` has mostly scrolled past (`is-revealed` + `aria-hidden`). Then the rail **fades in** and list items **stagger** in (`sectionNavItemIn`). No **Hero** link—first item is **IoT Shield** (`#section-platform`). `js/section-nav.js` also adds **`is-departing`** to `.hero-panel` when **Learn more** is clicked (lift + soften) and clears it near the top; Learn more targets `#section-platform`.
+
+## Mobile
+
+- **Viewport:** `viewport-fit=cover` for notched devices; **safe-area** insets on the contact dialog, scroll-top button, and footer padding.
+- **≤768px:** **`.cs-container`** uses **`clamp(1.45rem, 5.5vw, 2rem)`** horizontal padding for more side inset. Centered hero copy, **44px+** touch targets on primary CTAs, feature cards, and form actions; FAQ rows stay **≥2.75rem** min height with **tighter** vertical rhythm; single-column features; full-width contact panel.
+- **≤540px:** Contact form opens as a **bottom sheet** (rounded top corners).
+- **≤480px:** Hero / image block scales with `min()` so panels don’t overflow small phones.
+- **FAQ:** Side gutters from **`#faq-1193`** padding (aligned with **Key Features** at ≤768px); **compact** vertical stack (smaller gaps, title margins, answer padding). ≤900px the **FAQ image** mirrors **solution** height/oval scaling (not a short 16:9 strip). ≤768px **~2.75rem** min trigger height, **0.94rem** body; ≤480px shortest FAQ verticals (other sections still use **`.cs-container`** bump at ≤480px).
+- **Side nav:** Still **off** below **1320px** (CSS + `section-nav.js` returns before scroll-spy so mobile doesn’t run that logic).
 
 ## Back to top (`#scroll-top`)
 

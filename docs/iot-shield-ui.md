@@ -75,6 +75,10 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Then open **http://127.0.0.1:8765/**.
 
+## Sticky section nav (`#section-nav`)
+
+Fixed **top-right** rail from **1320px** width up (`right: max(0.75rem, calc(50vw - 35rem - 14.5rem))` so it sits farther from the content column, toward the viewport edge). **Hidden in the hero:** `opacity`/`visibility` until `#banner-843` has mostly scrolled past (`is-revealed` + `aria-hidden`). Then the rail **fades in** and list items **stagger** in (`sectionNavItemIn`). No **Hero** link—first item is **IoT Shield** (`#section-platform`). `js/section-nav.js` also adds **`is-departing`** to `.hero-panel` when **Learn more** is clicked (lift + soften) and clears it near the top; Learn more targets `#section-platform`.
+
 ## Back to top (`#scroll-top`)
 
 Fixed round control (bottom-right, `z-index: 40`). Shown after ~380px scroll (`js/scroll-top.js`); `tabindex="-1"` when hidden so it’s skipped in tab order. Click scrolls to top with `behavior: smooth` unless `prefers-reduced-motion: reduce`.
@@ -89,4 +93,5 @@ Fixed round control (bottom-right, `z-index: 40`). Shown after ~380px scroll (`j
 | FAQ accordion  | `js/faq.js`          |
 | Contact modal  | `js/contact-modal.js` |
 | Back to top    | `js/scroll-top.js`   |
+| Section nav    | `js/section-nav.js`  |
 | Local server   | `serve-local.ps1`    |

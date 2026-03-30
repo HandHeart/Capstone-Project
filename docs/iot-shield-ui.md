@@ -39,7 +39,11 @@ At **900px** and below, `.solution-with-media` stacks vertically (`flex-directio
 
 ## CTA (`#cta-697`)
 
-Placed after the FAQ, still inside `<main>`. Centered headline (`.cta-697-title`), pill **Get in touch** link using `.cs-button-solid` + arrow icon (same pattern as the hero). **Waves:** inline SVG (`.cta-697-waves`) with teal/violet/footer-tint fills—no external graphic. Update the `mailto:` in `index.html` to your real address.
+Placed after the FAQ, still inside `<main>`. Centered headline (`.cta-697-title`), **Get in touch** is a `<button>` (`#contact-modal-open`) that opens the contact dialog. **Waves:** inline SVG (`.cta-697-waves`) with teal/violet/footer-tint fills—no external graphic.
+
+## Contact modal (`#contact-modal`)
+
+Native `<dialog>` with `showModal()` / `close()` (`js/contact-modal.js`). **Closed state:** `dialog.contact-modal:not([open]) { display: none; }` so global `.contact-modal` flex styles never override the UA and leak the form below the footer. **Open state:** `dialog.contact-modal[open]` applies the flex centering. Close control uses `stopPropagation` and the inner SVG uses `pointer-events: none` so the X reliably closes the dialog. Contains **only the form** (name, email, phone, optional “how did you find us”, message) plus intro copy—no map or side contact list. Submit uses client-side validation then shows a static success note (hook to your backend or Formspree when you deploy). Styles use `.contact-*` classes and theme tokens.
 
 ## Key Features (`.sf-product-tab-order-list`)
 
@@ -79,4 +83,5 @@ Then open **http://127.0.0.1:8765/**.
 | Layout / theme | `css/style.css`      |
 | Hero canvas    | `js/banner.js`       |
 | FAQ accordion  | `js/faq.js`          |
+| Contact modal  | `js/contact-modal.js` |
 | Local server   | `serve-local.ps1`    |

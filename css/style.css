@@ -216,6 +216,13 @@ img {
   transform: translateX(4px);
 }
 
+button.cs-button-solid {
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 #banner-843::before {
   content: "";
   position: absolute;
@@ -856,6 +863,202 @@ img {
   pointer-events: none;
   z-index: 0;
   opacity: 0.95;
+}
+
+/* ——— CONTACT MODAL ——— */
+
+/* Closed <dialog> must stay out of layout; our flex rule was overriding UA display:none */
+dialog.contact-modal:not([open]) {
+  display: none;
+}
+
+dialog.contact-modal[open] {
+  width: 100%;
+  max-width: 100vw;
+  max-height: 100dvh;
+  height: 100%;
+  margin: 0;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+dialog.contact-modal::backdrop {
+  background: rgba(5, 8, 22, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.contact-modal-panel {
+  position: relative;
+  width: min(100%, 32rem);
+  max-height: min(90dvh, 720px);
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: rgba(11, 16, 32, 0.94);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 80px var(--primary-dim);
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-modal-close:hover {
+  color: var(--primary);
+  border-color: rgba(94, 234, 212, 0.35);
+  background: rgba(94, 234, 212, 0.08);
+}
+
+.contact-modal-close:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.contact-modal-close svg {
+  pointer-events: none;
+  display: block;
+}
+
+.contact-modal-intro {
+  padding-right: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-modal-heading {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.contact-modal-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-label-message {
+  grid-column: 1 / -1;
+}
+
+.contact-label-text {
+  font-family: var(--font-body);
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(148, 163, 184, 0.55);
+  font-weight: 400;
+}
+
+.contact-input:hover {
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: rgba(94, 234, 212, 0.45);
+  box-shadow: 0 0 0 3px var(--primary-dim);
+}
+
+.contact-textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.contact-submit {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-form-success {
+  text-align: center;
+  padding: 0.5rem 0 0.25rem;
+}
+
+.contact-form-success-text {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.contact-success-close {
+  width: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 540px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal-close,
+  .contact-input {
+    transition: none;
+  }
 }
 
 /* ——— FOOTER ——— */

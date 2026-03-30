@@ -8,8 +8,8 @@ function resizeCanvas() {
 
 const colors = [
   { x: 0.2, y: 0.3, r: 0.9, color: "#0d1741" },
-  { x: 0.8, y: 0.2, r: 0.8, color: "#63D9B3" },
-  { x: 0.6, y: 0.8, r: 0.9, color: "#7F54B3" },
+  { x: 0.8, y: 0.2, r: 0.8, color: "#5eead4" },
+  { x: 0.6, y: 0.8, r: 0.9, color: "#7c3aed" },
   { x: 0.1, y: 0.9, r: 0.7, color: "#1b3a5b" }
 ];
 
@@ -46,6 +46,35 @@ function draw(time) {
   requestAnimationFrame(draw);
 }
 
+function drawStatic() {
+  const w = canvas.width;
+  const h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  colors.forEach((c) => {
+    const grad = ctx.createRadialGradient(
+      c.x * w,
+      c.y * h,
+      0,
+      c.x * w,
+      c.y * h,
+      Math.max(w, h) * c.r
+    );
+    grad.addColorStop(0, c.color);
+    grad.addColorStop(1, "transparent");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+  });
+}
+
 resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-requestAnimationFrame(draw);
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  drawStatic();
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    drawStatic();
+  });
+} else {
+  window.addEventListener("resize", resizeCanvas);
+  requestAnimationFrame(draw);
+}

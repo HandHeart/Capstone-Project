@@ -1,12 +1,20 @@
 # IoT Shield — UI layout and motion
 
-This document summarizes the hero gradient animation, CTA/problem/solution layout, and Key Features interactions implemented on the marketing page.
+This document summarizes the hero gradient animation, CTA/problem/solution layout, Key Features interactions, and the modern design system used on the marketing page.
+
+## Design system (modern refresh)
+
+- **Typography:** [Outfit](https://fonts.google.com/specimen/Outfit) for display headings and feature numerals; [DM Sans](https://fonts.google.com/specimen/DM+Sans) for body copy. Loaded from Google Fonts with `preconnect` in `index.html`.
+- **Color tokens (CSS variables):** `--primary` (teal), `--secondary` (violet), `--surface`, `--surface-elevated`, `--text-muted`, `--border-subtle`, and radius tokens (`--radius-sm` / `--md` / `--lg`) in `:root` inside `css/style.css`.
+- **Hero:** Frosted `hero-panel` with eyebrow line, gradient accent on “Shield”, pill CTA with arrow icon, simplified bottom transition into the next section.
+- **Features:** Responsive CSS grid (4 → 2 → 1 columns), left-aligned card copy, footer strip with brand line.
+- **Motion:** `prefers-reduced-motion: reduce` disables hover transforms in CSS; `js/banner.js` draws a static gradient and redraws on resize instead of animating.
 
 ## Hero gradient (`js/banner.js`)
 
 The banner uses a full-bleed `<canvas>` with four layered radial gradients. Each frame:
 
-- **Position:** Blob centers use combined sine/cosine offsets with time factors around `0.001`–`0.0012` and amplitude up to about `0.16` (plus a smaller secondary wiggle) so motion reads clearly on screen.
+- **Position:** Blob centers use combined sine/cosine offsets with time factors around `0.001`–`0.0012` and amplitude up to about `0.16` (plus a smaller secondary wiggle) so motion reads clearly on screen. Blob colors align with the refreshed palette (`#5eead4`, `#7c3aed`, etc.).
 - **Radius:** Each blob’s radius scales by `1 + sin(time * 0.0009 + i * 2.1) * 0.14` so the blend shifts as well as the centers.
 
 `resizeCanvas` runs on load and `resize`; drawing uses `requestAnimationFrame`.

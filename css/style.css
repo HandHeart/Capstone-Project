@@ -1,0 +1,431 @@
+/* ===================================== */
+/* SAFE BANNER STYLES - HERO ONLY */
+/* ===================================== */
+
+#banner-843 {
+ position: relative;
+  min-height: 55vh;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+  background: #070c24;
+}
+
+#banner-843 #gradient-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+
+#banner-843 .banner-overlay {
+  position: relative;
+  margin-bottom:0.5rem;
+  z-index: 3;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 6vw;
+}
+
+#banner-843 .banner-content {
+  max-width: 700px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+#banner-843 .banner-title {
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.1;
+  font-family: Segoe UI, Arial, sans-serif;
+  font-weight: 700;
+}
+
+#banner-843 .banner-subtitle {
+  margin: 0 0 2rem 0;
+  color: #d9e2ff;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: Segoe UI, Arial, sans-serif;
+}
+
+#banner-843 .banner-button {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border-radius: 6px;
+  background: #63D9B3;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: Segoe UI, Arial, sans-serif;
+  transition: 0.3s ease;
+}
+
+#banner-843 .banner-button:hover {
+  background: #7F54B3;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  #banner-843 .banner-content {
+    padding: 2rem;
+  }
+
+  #banner-843 .banner-subtitle {
+    font-size: 1rem;
+  }
+}
+
+:root {
+  --primary: #63D9B3;
+  --secondary: #7F54B3;
+  --dark: #070c24;
+  --dark2: #0d1741;
+  --text: #ffffff;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Segoe UI, Arial, sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.cs-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HERO */
+
+#banner-843 {
+  position: relative;
+  padding: 8rem 2rem 6rem;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 20% 30%,
+    #1b3a5b 0%,
+    var(--dark2) 60%,
+    var(--dark) 100%
+  );
+}
+
+#banner-843::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#banner-843::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 120px;
+  background: #0b0f1f;
+  clip-path: polygon(
+    0 60%,
+    15% 55%,
+    25% 65%,
+    30% 70%,
+    40% 65%,
+    50% 60%,
+    60% 55%,
+    75% 50%,
+    80% 48%,
+    90% 52%,
+    100% 60%,
+    100% 100%,
+    0 100%
+  );
+  z-index: 2;
+}
+
+#banner-843 .cs-container {
+  position: relative;
+  z-index: 3;
+}
+
+.cs-int-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.cs-button-solid {
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  background: #000;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cs-button-solid:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+/* CONTENT */
+
+#content-page-713 {
+  background: #0b0f1f;
+  padding: 5rem 2rem 4rem;
+}
+
+#content-page-713 .cs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+#content-page-713 .cs-content {
+  max-width: 900px;
+}
+
+.cs-topper {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cs-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+#content-page-713 h3 {
+  color: var(--white);
+  margin: 2rem 0 1rem;
+  font-size: 1.6rem;
+}
+
+#content-page-713 p {
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+#content-page-713 ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#content-page-713 li {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+/* IMAGE PANEL */
+
+.cs-image-group {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.iot-visual-wrap {
+  width: 100%;
+  max-width: 360px;
+  height: 420px;
+  margin-left: auto;
+  position: relative;
+  overflow: hidden;
+  background: #13213a;
+  border-radius: 12px;
+}
+
+.iot-visual-bg-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(180deg, #02233d, #02182b);
+}
+
+.iot-visual-bg-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #1b2638 0px,
+    #1b2638 16px,
+    #202d41 16px,
+    #202d41 32px
+  );
+}
+
+.iot-oval-picture {
+  width: 250px;
+  height: 320px;
+  border-radius: 50% / 42%;
+  overflow: hidden;
+  border: 12px solid #052849;
+  position: absolute;
+  top: 58%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  background: #0b0f1f;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(99, 217, 179, 0.25)
+}
+
+.iot-oval-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0b0f1f;
+}
+
+/* FEATURES SECTION TITLE TEXT */
+
+.features {
+  padding: 2rem 2rem 6rem;
+  background: #0b0f1f;
+}
+
+.feature-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.feature-section-text {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: #a9b8ff;
+  line-height: 1.6;
+}
+
+/* YOUR FEATURE CSS */
+
+.sf-product-tab-order {
+  text-align: center;
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.sf-product-tab-order-list {
+  display: flex;
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+}
+
+.sf-product-tab-order-list li {
+  flex: 1;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.sf-product-tab-order-list li h3 {
+  font-size: 50px;
+  line-height: 1;
+  color: var(--secondary);
+  margin: 0 0 20px;
+}
+
+.sf-product-tab-order-list li h4 {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
+.sf-product-tab-order-list li p {
+  font-size: 85%;
+  opacity: 0.7;
+  color: #cdd6ff;
+  margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .sf-product-tab-order-list {
+    flex-direction: column;
+  }
+
+  .sf-product-tab-order-list li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  #content-page-713 .cs-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-image-group {
+    margin: 2rem auto 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #banner-843 {
+    padding: 6rem 1.5rem;
+  }
+
+  #content-page-713 {
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .features {
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  .iot-visual-wrap {
+    height: 500px;
+  }
+
+  .iot-oval-picture {
+    width: 300px;
+    height: 380px;
+    border-width: 8px;
+  }
+}

@@ -20,14 +20,22 @@ function draw(time) {
   ctx.clearRect(0, 0, w, h);
 
   colors.forEach((c, i) => {
-    const offsetX = Math.sin(time * 0.0003 + i) * 0.08;
-    const offsetY = Math.cos(time * 0.00025 + i) * 0.08;
+    const offsetX =
+      Math.sin(time * 0.0012 + i * 1.7) * 0.16 +
+      Math.cos(time * 0.00055 + i) * 0.05;
+    const offsetY =
+      Math.cos(time * 0.001 + i * 1.3) * 0.14 +
+      Math.sin(time * 0.00065 + i * 0.9) * 0.05;
+    const radiusScale = 1 + Math.sin(time * 0.0009 + i * 2.1) * 0.14;
 
-    const gx = (c.x + offsetX) * w;
-    const gy = (c.y + offsetY) * h;
-    const radius = Math.max(w, h) * c.r;
-
-    const grad = ctx.createRadialGradient(gx, gy, 0, gx, gy, radius);
+    const grad = ctx.createRadialGradient(
+      (c.x + offsetX) * w,
+      (c.y + offsetY) * h,
+      0,
+      (c.x + offsetX) * w,
+      (c.y + offsetY) * h,
+      Math.max(w, h) * c.r * radiusScale
+    );
     grad.addColorStop(0, c.color);
     grad.addColorStop(1, "transparent");
 

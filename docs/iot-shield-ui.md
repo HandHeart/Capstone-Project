@@ -30,6 +30,17 @@ The banner uses a full-bleed `<canvas>` with four layered radial gradients. Each
 
 At **900px** and below, `.solution-with-media` stacks vertically (`flex-direction: column`); the image group is centered.
 
+## FAQ (`#faq-1193`)
+
+- **Surface:** Background is a short gradient from `--dark2` into `--surface` so it lines up with the bottom of the Key Features strip and matches the main content palette (not the footer `--dark`).
+- **Markup:** Two-column layout (`.faq-layout`): `.faq-media` uses a themed card (`.faq-visual-card`) with `assets/images/thinking_computer.jpg`, decorative glow, and `aria-hidden` on the visual column. Copy uses `.faq-copy` with existing `.cs-topper` / `.cs-title`.
+- **Accordion:** Each row is `.faq-item` with a `<button class="faq-trigger">` (not `.cs-button`, to avoid clashing with the hero CTA). Answers live in `.faq-panel` > `.faq-panel-inner` > `.faq-answer`. Only one item has `.is-open` by default; `js/faq.js` toggles `.is-open` and `aria-expanded` (single-open behavior).
+- **Motion:** Panel expand uses CSS `grid-template-rows: 0fr` / `1fr`. Respects `prefers-reduced-motion` by disabling FAQ transitions.
+
+## CTA (`#cta-697`)
+
+Placed after the FAQ, still inside `<main>`. Centered headline (`.cta-697-title`), pill **Get in touch** link using `.cs-button-solid` + arrow icon (same pattern as the hero). **Waves:** inline SVG (`.cta-697-waves`) with teal/violet/footer-tint fills—no external graphic. Update the `mailto:` in `index.html` to your real address.
+
 ## Key Features (`.sf-product-tab-order-list`)
 
 Each `<li>` is styled as a card (padding, radius, border, background). On **hover** or **focus-within** (keyboard users can tab to each item via `tabindex="0"`):
@@ -67,4 +78,5 @@ Then open **http://127.0.0.1:8765/**.
 | Markup         | `index.html`         |
 | Layout / theme | `css/style.css`      |
 | Hero canvas    | `js/banner.js`       |
+| FAQ accordion  | `js/faq.js`          |
 | Local server   | `serve-local.ps1`    |

@@ -46,4 +46,4 @@ Upload the folder contents (at minimum `index.html`, `css/`, `js/`, `assets/`) t
 
 ## License / course use
 
-Capstone / academic use unless your team assigns another license.
+Capstone / academic use unless team assigns another license.

@@ -25,6 +25,7 @@
     let index = 0;
     let autoplayTimer = null;
     let scrollDebounce = null;
+    let pointerOverRoot = false;
     const dots = [];
 
     function clampIndex(i) {
@@ -127,16 +128,28 @@
       }
     });
 
-    root.addEventListener("mouseenter", stopAutoplay);
-    root.addEventListener("mouseleave", startAutoplay);
+    root.addEventListener("mouseenter", function () {
+      pointerOverRoot = true;
+      stopAutoplay();
+    });
+    root.addEventListener("mouseleave", function () {
+      pointerOverRoot = false;
+      startAutoplay();
+    });
     root.addEventListener("focusin", stopAutoplay);
     root.addEventListener("focusout", function (e) {
-      if (!root.contains(e.relatedTarget)) startAutoplay();
+      if (
+        root.contains(e.relatedTarget) ||
+        pointerOverRoot
+      ) {
+        return;
+      }
+      startAutoplay();
     });
 
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) stopAutoplay();
-      else startAutoplay();
+      else if (!pointerOverRoot) startAutoplay();
     });
 
     window.addEventListener(

@@ -19,7 +19,7 @@ The site uses one shared carousel implementation for:
 
 - **Navigation:** Previous and next buttons; dot buttons jump to a slide; when the viewport has focus, **Left** / **Right** arrows change slides.
 - **Scrolling:** Native horizontal scrolling with **scroll-snap** so touch and trackpad swipes align to whole slides.
-- **Autoplay:** Each root reads its own `data-autoplay-ms` (milliseconds). Autoplay is off when `prefers-reduced-motion: reduce` is set, when the value is below 800 ms, or when the document is hidden.
+- **Autoplay:** Each root reads its own `data-autoplay-ms` (milliseconds). Autoplay is off when `prefers-reduced-motion: reduce` is set, when the value is below 800 ms, or when the document is hidden. While the pointer is over the carousel (`mouseenter`), autoplay stays off; **`focusout` does not restart autoplay** until the pointer has left as well, so tabbing away while the mouse still sits over the strip does not resume the timer. When the browser tab becomes visible again, autoplay only resumes if the pointer is not over that carousel.
 - **Accessibility:** The viewport is a `role="region"` with `aria-roledescription="carousel"`. Inactive slides use `aria-hidden="true"`. The status line is `aria-live="polite"` and announces the current slide index and label.
 
 ## Adding another carousel

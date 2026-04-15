@@ -89,6 +89,8 @@ img {
 #section-problem,
 #section-solution,
 #section-features,
+#section-attacks,
+#section-how-it-works,
 #faq-1193,
 #cta-697 {
   scroll-margin-top: 1rem;
@@ -227,6 +229,14 @@ img {
 
 .section-nav.is-revealed .section-nav-list li:nth-child(6) .section-nav-link {
   animation-delay: 0.34s;
+}
+
+.section-nav.is-revealed .section-nav-list li:nth-child(7) .section-nav-link {
+  animation-delay: 0.4s;
+}
+
+.section-nav.is-revealed .section-nav-list li:nth-child(8) .section-nav-link {
+  animation-delay: 0.46s;
 }
 
 @keyframes sectionNavItemIn {
@@ -797,6 +807,274 @@ button.cs-button-solid {
 .sf-product-tab-order-list li:hover p,
 .sf-product-tab-order-list li:focus-within p {
   opacity: 1;
+}
+
+/* ——— SLIDESHOW SECTIONS (attacks + platform walkthrough) ——— */
+
+#section-attacks,
+#section-how-it-works {
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 10vw, 6rem);
+  border-top: 1px solid var(--border-subtle);
+}
+
+#section-attacks {
+  background: linear-gradient(180deg, var(--dark2) 0%, var(--surface) 55%);
+}
+
+#section-how-it-works {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--dark2) 48%);
+}
+
+#section-attacks .attacks-section-inner,
+#section-how-it-works .attacks-section-inner {
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2rem);
+  padding-right: clamp(1.25rem, 4vw, 2rem);
+}
+
+#section-attacks .attacks-section-intro,
+#section-how-it-works .attacks-section-intro {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+#section-attacks .attacks-section-title,
+#section-how-it-works .attacks-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.65rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--white);
+  letter-spacing: -0.03em;
+}
+
+#section-attacks .attacks-section-text,
+#section-how-it-works .attacks-section-text {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+.how-it-works-explain {
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  padding-top: clamp(1.75rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.how-it-works-explain-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.how-it-works-explain-body {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.how-it-works-explain-body h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 1.5rem 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.how-it-works-explain-body p {
+  margin: 0 0 0.85rem;
+}
+
+.how-it-works-explain-body p:last-child {
+  margin-bottom: 0;
+}
+
+.how-it-works-explain-body h4:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.how-it-works-explain-body ul {
+  margin: 0 0 1.15rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.how-it-works-explain-body ul:last-child {
+  margin-bottom: 0;
+}
+
+.how-it-works-explain-body li {
+  margin-bottom: 0.35rem;
+}
+
+.how-it-works-explain-body li:last-child {
+  margin-bottom: 0;
+}
+
+.attacks-slideshow {
+  position: relative;
+}
+
+.attacks-slideshow-viewport {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: rgba(8, 12, 28, 0.45);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(94, 234, 212, 0.35) transparent;
+}
+
+.attacks-slideshow-viewport::-webkit-scrollbar {
+  height: 8px;
+}
+
+.attacks-slideshow-viewport::-webkit-scrollbar-thumb {
+  background: rgba(94, 234, 212, 0.35);
+  border-radius: 99px;
+}
+
+.attacks-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+.attacks-slide-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 100%;
+}
+
+.attacks-slide-figure img {
+  width: 100%;
+  max-height: min(58vh, 520px);
+  object-fit: contain;
+  object-position: center top;
+  border-radius: var(--radius-md);
+  background: rgba(5, 8, 22, 0.6);
+}
+
+.attacks-slide-caption {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.attacks-slideshow-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  margin-top: 1.25rem;
+}
+
+.attacks-slideshow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.65);
+  color: var(--primary);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.attacks-slideshow-btn:hover {
+  border-color: rgba(94, 234, 212, 0.45);
+  background: rgba(30, 41, 59, 0.85);
+  box-shadow: 0 0 24px var(--primary-dim);
+}
+
+.attacks-slideshow-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.attacks-slideshow-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: min(100%, 36rem);
+}
+
+.attacks-slideshow-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.35);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.attacks-slideshow-dot[aria-current="true"] {
+  background: var(--primary);
+  transform: scale(1.2);
+  box-shadow: 0 0 12px var(--primary-dim);
+}
+
+.attacks-slideshow-dot:hover {
+  background: rgba(94, 234, 212, 0.55);
+}
+
+.attacks-slideshow-dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.attacks-slideshow-status {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.65rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attacks-slideshow-viewport {
+    scroll-behavior: auto;
+  }
 }
 
 /* ——— FAQ ——— */

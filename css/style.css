@@ -987,6 +987,31 @@ button.cs-button-solid {
   background: rgba(5, 8, 22, 0.6);
 }
 
+.attacks-slide-figure--video {
+  width: 100%;
+  max-width: min(100%, 960px);
+  align-self: center;
+}
+
+.attacks-slide-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: min(58vh, 520px);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(5, 8, 22, 0.6);
+  align-self: center;
+}
+
+.attacks-slide-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .attacks-slide-caption {
   font-family: var(--font-display);
   font-size: clamp(1rem, 2.4vw, 1.2rem);
@@ -1095,6 +1120,10 @@ button.cs-button-solid {
   }
 
   .attacks-slide-figure img {
+    max-height: min(42vh, 340px);
+  }
+
+  .attacks-slide-video-frame {
     max-height: min(42vh, 340px);
   }
 }
